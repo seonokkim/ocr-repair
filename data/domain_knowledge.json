@@ -1,0 +1,38 @@
+{
+    "법률 문서": {
+        "type": "document",
+        "category": "legal",
+        "common_terms": ["당사자", "계약", "의무", "권리"],
+        "examples": [
+            "본 계약은 당사자 간의 권리와 의무를 규정합니다.",
+            "계약 당사자는 서면으로 통지하여야 합니다."
+        ]
+    },
+    "의료 기록": {
+        "type": "document",
+        "category": "medical",
+        "common_terms": ["환자", "진단", "처방", "증상"],
+        "examples": [
+            "환자의 주요 증상은 발열과 기침입니다.",
+            "의사는 항생제를 처방했습니다."
+        ]
+    },
+    "재무 보고서": {
+        "type": "document",
+        "category": "financial",
+        "common_terms": ["수익", "비용", "자산", "부채"],
+        "examples": [
+            "당기 순이익은 전년 대비 10% 증가했습니다.",
+            "총 자산은 1,000억원으로 집계되었습니다."
+        ]
+    },
+    "기술 문서": {
+        "type": "document",
+        "category": "technical",
+        "common_terms": ["시스템", "설정", "구성", "기능"],
+        "examples": [
+            "시스템 구성은 다음과 같습니다.",
+            "이 기능은 자동으로 백업을 수행합니다."
+        ]
+    }
+} 
