@@ -17,6 +17,10 @@ pytesseract>=0.3.10
 donut-python>=1.0.8  # For Donut model
 timm>=0.9.2  # For vision models
 
+# Vector Database
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4  # Use faiss-gpu for GPU support
+
 # Evaluation and metrics
 scikit-learn>=1.2.2
 nltk>=3.8.1
@@ -30,11 +34,11 @@ python-dotenv>=1.0.0
 
 # Text processing
 spacy>=3.5.0
-editdistance>=1.0.0
+python-Levenshtein>=0.21.0  # Alternative to editdistance
 
 # Testing
-pytest>=7.3.1
-pytest-cov>=4.1.0
+pytest>=7.0.0
+pytest-cov>=4.0.0
 
 # Development
 black>=23.3.0

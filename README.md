@@ -13,17 +13,23 @@ This project implements and compares three different approaches to text restorat
 ├── data/
 │   ├── train/
 │   ├── test/
+│   │   ├── images/
+│   │   ├── labels/
+│   │   └── results/
 │   └── validation/
 ├── src/
 │   ├── mlm/
 │   │   ├── bert_restoration.py
 │   │   └── roberta_restoration.py
 │   ├── ocr/
-│   │   ├── seq2seq_restoration.py
-│   │   └── t5_restoration.py
-│   └── vision/
-│       ├── trocr_restoration.py
-│       └── donut_restoration.py
+│   │   ├── t5_restoration.py
+│   │   └── denoising_autoencoder.py
+│   ├── vision/
+│   │   ├── trocr_restoration.py
+│   │   └── donut_restoration.py
+│   ├── document_processor.py
+│   ├── create_vector_db.py
+│   └── test_methods.py
 ├── notebooks/
 │   └── evaluation.ipynb
 ├── requirements.txt
@@ -52,9 +58,9 @@ python src/download_models.py
 
 ### 1. MLM-based Restoration
 ```python
-from src.mlm.bert_restoration import BERTRestorer
+from src.mlm.roberta_restoration import RoBERTaRestorer
 
-restorer = BERTRestorer()
+restorer = RoBERTaRestorer()
 restored_text = restorer.restore("The cat sat on the [MASK]")
 ```
 
@@ -74,20 +80,51 @@ restorer = TrOCRRestorer()
 restored_text = restorer.restore("path/to/image.jpg")
 ```
 
-## Evaluation
+### 4. Combined Processing
+```python
+from src.document_processor import DocumentProcessor
 
-Run the evaluation notebook to compare the performance of different methods:
-```bash
-jupyter notebook notebooks/evaluation.ipynb
+processor = DocumentProcessor()
+result = processor.process_document("path/to/image.jpg")
 ```
+
+### 5. Vector Database Creation
+```python
+from src.create_vector_db import create_vector_db
+
+vector_db = create_vector_db(
+    input_dir="data/test/results",
+    output_dir="data/test/vector_db"
+)
+```
+
+## Testing Methods
+
+To test all methods on a specific image:
+```bash
+python src/test_methods.py
+```
+
+This will generate three types of result files in `data/test/results/`:
+1. `results.json`: Detailed results in JSON format
+2. `results.txt`: Results in plain text format
+3. `results.md`: Results in markdown format
 
 ## Models Used
 
-- MLM: BERT-base, RoBERTa-base
-- OCR Recovery: T5-base, BART-base
-- Vision: TrOCR, Donut
+### 1. MLM Models
+- BERT (bert-base-uncased)
+- RoBERTa (roberta-base)
 
-## Metrics
+### 2. OCR Recovery Models
+- T5 (t5-base)
+- Denoising Autoencoder (custom implementation)
+
+### 3. Vision Models
+- TrOCR (microsoft/trocr-base-handwritten)
+- Donut (naver-clova-ix/donut-base-finetuned-docvqa)
+
+## Evaluation Metrics
 
 The following metrics are used for evaluation:
 - BLEU Score
