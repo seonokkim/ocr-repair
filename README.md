@@ -24,8 +24,7 @@ This project implements and compares three different approaches to text restorat
 │   │   ├── images/
 │   │   ├── labels/
 │   │   └── results/
-│   ├── domain_knowledge.json
-│   └── domain_knowledge_test.json
+│   └── domain_knowledge.json
 ├── results/           # All test and performance results are saved here
 ├── src/
 │   ├── mlm/
@@ -53,8 +52,6 @@ This project implements and compares three different approaches to text restorat
 │       └── domain_restorer.py
 ├── notebooks/
 │   └── evaluation.ipynb
-├── create_domain_knowledge_from_label.py
-├── test_performance.py
 ├── requirements.txt
 └── README.md
 ```
@@ -78,21 +75,6 @@ sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-kor
 ```
 
 ## Usage
-
-### Create Domain Knowledge File
-
-To create a domain knowledge file from label data:
-```bash
-python create_domain_knowledge_from_label.py
-```
-This will create a domain knowledge file at `data/domain_knowledge_test.json`.
-
-### Run Performance Test Script
-
-To test all methods on a specific image and save results in the `results/` directory:
-```bash
-python test_performance.py --image /path/to/image.jpg
-```
 
 ### Domain Knowledge-based Search
 
