@@ -1,0 +1,36 @@
+{
+  "image_path": "/root/ocr-repair/data/test/images/5350224/1996/5350224-1996-0001-0037.jpg",
+  "label_path": "/root/ocr-repair/data/test/labels/5350224/1996/5350224-1996-0001-0037.json",
+  "methods": {
+    "mlm": {
+      "processing_time": 0.8019564151763916,
+      "memory_usage": 2.0546875,
+      "result": {
+        "method": "MLM",
+        "status": "tested",
+        "extracted_text": ". 언제 만니도\n\n문서번호\n\n시햄일자\n\n~\n수 신\nx} 조\n\n제 목\n\nSeedy il OG\n내\n\n1\n\n. 0@0-05 | 12105\n\nryt:\n\niin HAE 0010 100\n\n경 찰 서\n\n \n\n \n\n114\n\nㆍ\n기\n\f",
+        "original_text": "IM HAE MOO 9-25 12:45 KYUNG\n:\n언제 만 어디를 다녀도 안정된 치안\n김 해 경찰 서\n봉황동 경 경남 전 (0525)36-6190, 장 이용노  우 321 담당 621-040 20-1\n/\n선\n지 경무 문서번호 63100-880\n시\n일자 시행일자 '95. 9. 25.\n1995. 25. 9.\n시\n수 신 김해시장 수 번호\n처리과\n무과 참조\n담당자\n및  『상징 제.지정에  『시민의 보 제목\n관련 이 귀시 의견 13120-301 )와 (95. 9. 1 .\n1부. :의견서\n114"
+      }
+    },
+    "ocr_denoising": {
+      "processing_time": 2.7400147914886475,
+      "memory_usage": -0.703125,
+      "result": {
+        "method": "OCR Denoising",
+        "status": "tested",
+        "extracted_text": ". QB o-25 5 12885              @iiw Hae Kvune noo    3\n. 언제 만니도             어디들 CHAE CHE! Alot\n김     해     경     질    석\n\n이 0 BE. . 왕황등 20-1 / 전화 (0525136~6190. 경비 321 ;/ 담당 경장 이 용 노\n\n문서번호 경무 69100-883       선            지\n\n분      |        시\n시햄임자 1995. 9. 25.           일자 '95. 9. 26.\n시기    :     ‘es ee\n= Alo goal AL @  수 WS   재 '\n주      te             | 저리 과          도리             |\n참조 £ SBA       |} -—-— —-— SB ,\n| 담당자         을\n제 뭉   『시민의날』 및 :상징돔: 제.지정에       동보\n1. 귀시     13120-301 (95. 9. )와 판련 놀입과 같이 의즌움 봉브합니.\n눔입:의견서 1부. 폰.\n.    cee a       나 11 라뇨\nme    오슨     Pai sgh      COTS Steg\n“=z!      oh:     “> 1) ‘he     1 나 이인 aac\n;        \"        |: i it yey\nlide rik\n|       3 빌미           114\n\f",
+        "original_text": "IM HAE MOO 9-25 12:45 KYUNG\n:\n언제 만 어디를 다녀도 안정된 치안\n김 해 경찰 서\n봉황동 경 경남 전 (0525)36-6190, 장 이용노  우 321 담당 621-040 20-1\n/\n선\n지 경무 문서번호 63100-880\n시\n일자 시행일자 '95. 9. 25.\n1995. 25. 9.\n시\n수 신 김해시장 수 번호\n처리과\n무과 참조\n담당자\n및  『상징 제.지정에  『시민의 보 제목\n관련 이 귀시 의견 13120-301 )와 (95. 9. 1 .\n1부. :의견서\n114"
+      }
+    },
+    "vision_based": {
+      "processing_time": 2.3178608417510986,
+      "memory_usage": -0.734375,
+      "result": {
+        "method": "Vision-based",
+        "status": "tested",
+        "extracted_text": ". QB o-25 5 12885              @iiw Hae Kvune noo    3\n. 언제 만니도             어디들 CHAE CHE! Alot\n김     해     경     질    석\n\n이 0 BE. . 왕황등 20-1 / 전화 (0525136~6190. 경비 321 ;/ 담당 경장 이 용 노\n\n문서번호 경무 69100-883       선            지\n\n분      |        시\n시햄임자 1995. 9. 25.           일자 '95. 9. 26.\n시기    :     ‘es ee\n= Alo goal AL @  수 WS   재 '\n주      te             | 저리 과          도리             |\n참조 £ SBA       |} -—-— —-— SB ,\n| 담당자         을\n제 뭉   『시민의날』 및 :상징돔: 제.지정에       동보\n1. 귀시     13120-301 (95. 9. )와 판련 놀입과 같이 의즌움 봉브합니.\n눔입:의견서 1부. 폰.\n.    cee a       나 11 라뇨\nme    오슨     Pai sgh      COTS Steg\n“=z!      oh:     “> 1) ‘he     1 나 이인 aac\n;        \"        |: i it yey\nlide rik\n|       3 빌미           114\n\f",
+        "original_text": "IM HAE MOO 9-25 12:45 KYUNG\n:\n언제 만 어디를 다녀도 안정된 치안\n김 해 경찰 서\n봉황동 경 경남 전 (0525)36-6190, 장 이용노  우 321 담당 621-040 20-1\n/\n선\n지 경무 문서번호 63100-880\n시\n일자 시행일자 '95. 9. 25.\n1995. 25. 9.\n시\n수 신 김해시장 수 번호\n처리과\n무과 참조\n담당자\n및  『상징 제.지정에  『시민의 보 제목\n관련 이 귀시 의견 13120-301 )와 (95. 9. 1 .\n1부. :의견서\n114"
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+model_name,text_detection,text_recognition,preprocessing_steps,item_accuracy,char_accuracy,inference_time,text_match_rate
+mlm,mlm,mlm,no_preprocessing,0.0,0.0,0.8019564151763916,0.0
+ocr_denoising,ocr_denoising,ocr_denoising,no_preprocessing,0.0,0.0,2.7400147914886475,0.0
+vision_based,vision_based,vision_based,no_preprocessing,0.0,0.0,2.3178608417510986,0.0

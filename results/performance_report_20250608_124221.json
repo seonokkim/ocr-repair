@@ -1,0 +1,65 @@
+{
+  "mlm": {
+    "avg_time": 0.9311065673828125,
+    "avg_memory": 1.25,
+    "success_rate": 0.0,
+    "text_matches": 0.0,
+    "metrics": {
+      "item_accuracy": 0.0,
+      "char_accuracy": 0.0,
+      "average_normalized_levenshtein": 0.0,
+      "average_bleu_score": 0.0,
+      "average_rouge_rouge-1": 0.0,
+      "average_rouge_rouge-2": 0.0,
+      "average_rouge_rouge-l": 0.0,
+      "average_length_long": 0.0,
+      "average_length_medium": 0.0,
+      "average_length_short": 0.0,
+      "average_size_large": 0.0,
+      "average_type_textType1": 0.0,
+      "average_region_bottom": 0.0
+    }
+  },
+  "ocr_denoising": {
+    "avg_time": 2.415289878845215,
+    "avg_memory": -1.68359375,
+    "success_rate": 0.0,
+    "text_matches": 0.0,
+    "metrics": {
+      "item_accuracy": 0.0,
+      "char_accuracy": 0.0,
+      "average_normalized_levenshtein": 0.0,
+      "average_bleu_score": 0.0,
+      "average_rouge_rouge-1": 0.0,
+      "average_rouge_rouge-2": 0.0,
+      "average_rouge_rouge-l": 0.0,
+      "average_length_long": 0.0,
+      "average_length_medium": 0.0,
+      "average_length_short": 0.0,
+      "average_size_large": 0.0,
+      "average_type_textType1": 0.0,
+      "average_region_bottom": 0.0
+    }
+  },
+  "vision_based": {
+    "avg_time": 2.6343603134155273,
+    "avg_memory": -0.68359375,
+    "success_rate": 0.0,
+    "text_matches": 0.0,
+    "metrics": {
+      "item_accuracy": 0.0,
+      "char_accuracy": 0.0,
+      "average_normalized_levenshtein": 0.0,
+      "average_bleu_score": 0.0,
+      "average_rouge_rouge-1": 0.0,
+      "average_rouge_rouge-2": 0.0,
+      "average_rouge_rouge-l": 0.0,
+      "average_length_long": 0.0,
+      "average_length_medium": 0.0,
+      "average_length_short": 0.0,
+      "average_size_large": 0.0,
+      "average_type_textType1": 0.0,
+      "average_region_bottom": 0.0
+    }
+  }
+}

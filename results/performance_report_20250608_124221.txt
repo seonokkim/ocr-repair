@@ -1,0 +1,63 @@
+Performance Report Summary
+==================================================
+
+Method: mlm
+------------------------------
+Average Processing Time: 0.93 seconds
+Average Memory Usage: 1.25 MB
+Success Rate: 0.00%
+Text Match Rate: 0.00%
+item_accuracy: 0.0000
+char_accuracy: 0.0000
+average_normalized_levenshtein: 0.0000
+average_bleu_score: 0.0000
+average_rouge_rouge-1: 0.0000
+average_rouge_rouge-2: 0.0000
+average_rouge_rouge-l: 0.0000
+average_length_long: 0.0000
+average_length_medium: 0.0000
+average_length_short: 0.0000
+average_size_large: 0.0000
+average_type_textType1: 0.0000
+average_region_bottom: 0.0000
+
+Method: ocr_denoising
+------------------------------
+Average Processing Time: 2.42 seconds
+Average Memory Usage: -1.68 MB
+Success Rate: 0.00%
+Text Match Rate: 0.00%
+item_accuracy: 0.0000
+char_accuracy: 0.0000
+average_normalized_levenshtein: 0.0000
+average_bleu_score: 0.0000
+average_rouge_rouge-1: 0.0000
+average_rouge_rouge-2: 0.0000
+average_rouge_rouge-l: 0.0000
+average_length_long: 0.0000
+average_length_medium: 0.0000
+average_length_short: 0.0000
+average_size_large: 0.0000
+average_type_textType1: 0.0000
+average_region_bottom: 0.0000
+
+Method: vision_based
+------------------------------
+Average Processing Time: 2.63 seconds
+Average Memory Usage: -0.68 MB
+Success Rate: 0.00%
+Text Match Rate: 0.00%
+item_accuracy: 0.0000
+char_accuracy: 0.0000
+average_normalized_levenshtein: 0.0000
+average_bleu_score: 0.0000
+average_rouge_rouge-1: 0.0000
+average_rouge_rouge-2: 0.0000
+average_rouge_rouge-l: 0.0000
+average_length_long: 0.0000
+average_length_medium: 0.0000
+average_length_short: 0.0000
+average_size_large: 0.0000
+average_type_textType1: 0.0000
+average_region_bottom: 0.0000
+

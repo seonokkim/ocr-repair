@@ -1,0 +1,4 @@
+model_name,text_detection,text_recognition,preprocessing_steps,item_accuracy,char_accuracy,inference_time,average_type_textType1,average_region_bottom,average_length_short,average_size_large,average_normalized_levenshtein,average_bleu_score,average_rouge_rouge-1,average_rouge_rouge-2,average_rouge_rouge-l,average_length_long,average_length_medium
+mlm,mlm,mlm,no_preprocessing,0.0,0.0,0.9311065673828125,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ocr_denoising,ocr_denoising,ocr_denoising,no_preprocessing,0.0,0.0,2.415289878845215,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+vision_based,vision_based,vision_based,no_preprocessing,0.0,0.0,2.6343603134155273,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

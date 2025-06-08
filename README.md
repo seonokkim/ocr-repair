@@ -5,6 +5,7 @@ This project implements and compares three different approaches to text restorat
 1. Masked Language Modeling (MLM)
 2. OCR Text Recovery
 3. Vision-based Text Restoration
+4. Domain Knowledge-based Search
 
 ## System Requirements
 
@@ -23,7 +24,8 @@ This project implements and compares three different approaches to text restorat
 │   │   ├── images/
 │   │   ├── labels/
 │   │   └── results/
-│   └── validation/
+│   ├── domain_knowledge.json
+│   └── domain_knowledge_test.json
 ├── results/           # All test and performance results are saved here
 ├── src/
 │   ├── mlm/
@@ -38,8 +40,20 @@ This project implements and compares three different approaches to text restorat
 │   ├── document_processor.py
 │   ├── create_vector_db.py
 │   └── test_methods.py
+├── models/
+│   ├── mlm/
+│   │   └── bert_restorer.py
+│   ├── ocr/
+│   │   └── ocr_corrector.py
+│   ├── vision/
+│   │   └── vision_restorer.py
+│   ├── search/
+│   │   └── domain_searcher.py
+│   └── integrated/
+│       └── domain_restorer.py
 ├── notebooks/
 │   └── evaluation.ipynb
+├── create_domain_knowledge_from_label.py
 ├── test_performance.py
 ├── requirements.txt
 └── README.md
@@ -65,6 +79,14 @@ sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-kor
 
 ## Usage
 
+### Create Domain Knowledge File
+
+To create a domain knowledge file from label data:
+```bash
+python create_domain_knowledge_from_label.py
+```
+This will create a domain knowledge file at `data/domain_knowledge_test.json`.
+
 ### Run Performance Test Script
 
 To test all methods on a specific image and save results in the `results/` directory:
@@ -72,61 +94,19 @@ To test all methods on a specific image and save results in the `results/` direc
 python test_performance.py --image /path/to/image.jpg
 ```
 
-- 결과는 `results/` 폴더에 다음과 같이 저장됩니다:
-    - 각 방법별 추출 텍스트: `mlm_[이미지명]_[타임스탬프].txt`, `ocr_denoising_[이미지명]_[타임스탬프].txt`, `vision_based_[이미지명]_[타임스탬프].txt`
-    - 전체 결과 요약: `performance_report_[타임스탬프].json|txt|csv`
-    - 개별 결과 상세: `performance_test_[이미지명]_[타임스탬프].json`
+### Domain Knowledge-based Search
 
-#### 예시
-```bash
-python test_performance.py --image data/test/images/5350224/1996/5350224-1996-0001-0037.jpg
+The project includes a domain knowledge-based search approach that uses vector similarity to find and restore text. This method requires a domain knowledge base file (JSON format) containing text samples and their contexts.
+
+Example usage:
+```python
+from models.search.domain_searcher import DomainSearcher
+
+searcher = DomainSearcher(domain_data_path="data/domain_knowledge.json")
+results = searcher.search("text to restore")
 ```
-
-### 옵션
-- `--limit N` : 최대 N개의 샘플만 평가
-- `--data-dir DIR` : 테스트 이미지가 있는 디렉토리 지정
-
-## 결과 파일 구조
-- `results/`
-    - `mlm_*.txt`, `ocr_denoising_*.txt`, `vision_based_*.txt` : 각 방법별 추출 텍스트
-    - `performance_test_*.json` : 개별 이미지별 상세 결과
-    - `performance_report_*.json|txt|csv` : 전체 성능 요약
-
-## Models Used
-
-### 1. MLM Models
-- BERT (bert-base-uncased)
-- RoBERTa (roberta-base)
-
-### 2. OCR Recovery Models
-- T5 (t5-base)
-- Denoising Autoencoder (custom implementation)
-
-### 3. Vision Models
-- TrOCR (microsoft/trocr-base-handwritten)
-- Donut (naver-clova-ix/donut-base-finetuned-docvqa)
-
-## Evaluation Metrics
-
-The following metrics are used for evaluation:
-- BLEU Score
-- ROUGE Score
-- BERTScore
-- Character Error Rate (CER)
-- Word Error Rate (WER)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
 
-Riley Kim (seonokrkim@gmail.com) 
+- Email: seonokrkim@gmail.com
+- Author: Riley Kim 

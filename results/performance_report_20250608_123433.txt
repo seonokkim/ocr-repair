@@ -1,0 +1,24 @@
+Performance Report Summary
+==================================================
+
+Method: mlm
+------------------------------
+Average Processing Time: 0.80 seconds
+Average Memory Usage: 2.05 MB
+Success Rate: 100.00%
+Text Match Rate: 0.00%
+
+Method: ocr_denoising
+------------------------------
+Average Processing Time: 2.74 seconds
+Average Memory Usage: -0.70 MB
+Success Rate: 100.00%
+Text Match Rate: 0.00%
+
+Method: vision_based
+------------------------------
+Average Processing Time: 2.32 seconds
+Average Memory Usage: -0.73 MB
+Success Rate: 100.00%
+Text Match Rate: 0.00%
+
