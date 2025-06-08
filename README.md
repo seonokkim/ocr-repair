@@ -1,21 +1,41 @@
-# OCR Repair
+# Text Restoration Methods Comparison
 
-A comprehensive text restoration system that combines multiple approaches for handling masked text, noisy OCR text, and vision-based text restoration.
+This project implements and compares three different approaches to text restoration:
 
-## Features
+1. Masked Language Modeling (MLM)
+2. OCR Text Recovery
+3. Vision-based Text Restoration
 
-- **Masked Text Restoration**: Uses BERT-based models for restoring masked text
-- **OCR Text Correction**: Implements T5-based models for correcting noisy OCR text
-- **Vision-based Text Restoration**: Utilizes TrOCR for restoring text from images
-- **Domain-Specific Fine-tuning**: Supports fine-tuning models for specific domains
-- **Search-Based Restoration**: Implements vector similarity search for domain-specific text restoration
+## Project Structure
 
-## Installation
+```
+.
+├── data/
+│   ├── train/
+│   ├── test/
+│   └── validation/
+├── src/
+│   ├── mlm/
+│   │   ├── bert_restoration.py
+│   │   └── roberta_restoration.py
+│   ├── ocr/
+│   │   ├── seq2seq_restoration.py
+│   │   └── t5_restoration.py
+│   └── vision/
+│       ├── trocr_restoration.py
+│       └── donut_restoration.py
+├── notebooks/
+│   └── evaluation.ipynb
+├── requirements.txt
+└── README.md
+```
 
-1. Clone the repository:
+## Setup
+
+1. Create a virtual environment:
 ```bash
-git clone https://github.com/seonokkim/ocr-repair.git
-cd ocr-repair
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 2. Install dependencies:
@@ -23,77 +43,58 @@ cd ocr-repair
 pip install -r requirements.txt
 ```
 
-3. Download pre-trained models:
+3. Download required models:
 ```bash
-python scripts/download_models.py
+python src/download_models.py
 ```
 
 ## Usage
 
-### Basic Usage
-
+### 1. MLM-based Restoration
 ```python
-from models.integrated.domain_restorer import DomainRestorer
+from src.mlm.bert_restoration import BERTRestorer
 
-# Initialize the domain restorer
-restorer = DomainRestorer(
-    domain_data_path="data/domain_knowledge.json",
-    model_name="klue/bert-base"
-)
-
-# Restore text
-restored_text = restorer.restore("masked text to restore")
+restorer = BERTRestorer()
+restored_text = restorer.restore("The cat sat on the [MASK]")
 ```
 
-### Fine-tuning
-
+### 2. OCR Text Recovery
 ```python
-# Prepare training data
-train_data = [
-    {"text": "original text", "masked_text": "masked text"},
-    # ... more training examples
-]
+from src.ocr.t5_restoration import T5Restorer
 
-# Fine-tune the model
-restorer.fine_tune(
-    train_data=train_data,
-    output_dir="models/fine_tuned",
-    num_epochs=3
-)
+restorer = T5Restorer()
+restored_text = restorer.restore("T1e c@t sa7 on t!e mat")
 ```
 
-### Adding Domain Knowledge
-
+### 3. Vision-based Restoration
 ```python
-# Add new text to domain knowledge base
-restorer.add_to_knowledge_base(
-    "new domain text",
-    context={"type": "document", "category": "legal"}
-)
+from src.vision.trocr_restoration import TrOCRRestorer
+
+restorer = TrOCRRestorer()
+restored_text = restorer.restore("path/to/image.jpg")
 ```
 
-## Project Structure
+## Evaluation
 
+Run the evaluation notebook to compare the performance of different methods:
+```bash
+jupyter notebook notebooks/evaluation.ipynb
 ```
-ocr-repair/
-├── data/
-│   └── domain_knowledge.json
-├── models/
-│   ├── mlm/
-│   │   └── bert_restorer.py
-│   ├── ocr/
-│   │   └── ocr_corrector.py
-│   ├── vision/
-│   │   └── vision_restorer.py
-│   ├── search/
-│   │   └── domain_searcher.py
-│   └── integrated/
-│       └── domain_restorer.py
-├── scripts/
-│   └── download_models.py
-├── requirements.txt
-└── README.md
-```
+
+## Models Used
+
+- MLM: BERT-base, RoBERTa-base
+- OCR Recovery: T5-base, BART-base
+- Vision: TrOCR, Donut
+
+## Metrics
+
+The following metrics are used for evaluation:
+- BLEU Score
+- ROUGE Score
+- BERTScore
+- Character Error Rate (CER)
+- Word Error Rate (WER)
 
 ## Contributing
 
@@ -109,6 +110,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Riley Kim - seonokrkim@gmail.com
-
-Project Link: [https://github.com/seonokkim/ocr-repair](https://github.com/seonokkim/ocr-repair) 
+Riley Kim - seonokrkim@gmail.com 
