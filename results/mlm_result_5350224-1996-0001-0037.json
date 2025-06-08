@@ -1,0 +1,24 @@
+{
+  "original_text": "언제 만 어디를 다녀도 안정된 치안",
+  "restored_text": "언제든 어디를 다녀도 안정된 치안",
+  "confidence_score": 0.92,
+  "restored_parts": [
+    {
+      "original": "언제 만",
+      "restored": "언제든",
+      "confidence": 0.95
+    },
+    {
+      "original": "어디를 다녀도 안정된",
+      "restored": "어디를 다녀도 안정된",
+      "confidence": 1.0
+    },
+    {
+      "original": "치안",
+      "restored": "치안",
+      "confidence": 1.0
+    }
+  ],
+  "method": "BERT-based MLM",
+  "model_version": "klue/bert-base"
+} 

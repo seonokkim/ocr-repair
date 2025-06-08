@@ -1,0 +1,29 @@
+{
+  "image_info": {
+    "file_name": "5350224-1996-0001-0037.jpg",
+    "dimensions": [2474, 3562]
+  },
+  "restored_text": "언제든 어디를 다녀도 안정된 치안",
+  "detected_regions": [
+    {
+      "bbox": [641, 429, 167, 61],
+      "original_text": "언제 만",
+      "restored_text": "언제든",
+      "confidence": 0.91
+    },
+    {
+      "bbox": [1189, 429, 443, 61],
+      "original_text": "어디를 다녀도 안정된",
+      "restored_text": "어디를 다녀도 안정된",
+      "confidence": 0.98
+    },
+    {
+      "bbox": [1632, 429, 101, 61],
+      "original_text": "치안",
+      "restored_text": "치안",
+      "confidence": 0.99
+    }
+  ],
+  "method": "Donut-based Vision Transformer",
+  "model_version": "naver-clova-ix/donut-base-finetuned-korean"
+} 

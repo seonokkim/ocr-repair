@@ -1,17 +1,17 @@
 # Core dependencies
-torch>=2.0.0
-transformers>=4.30.0
+torch>=1.9.0
+transformers>=4.15.0
 datasets>=2.12.0
-numpy>=1.24.0
+numpy>=1.19.0
 pandas>=2.0.0
-tqdm>=4.65.0
+tqdm>=4.62.0
 
 # MLM (BERT, RoBERTa) dependencies
 sentencepiece>=0.1.99
 tokenizers>=0.13.3
 
 # OCR and Vision dependencies
-Pillow>=9.5.0
+Pillow>=8.0.0
 opencv-python>=4.7.0
 pytesseract>=0.3.10
 donut-python>=1.0.8  # For Donut model
@@ -44,4 +44,9 @@ pytest-cov>=4.0.0
 black>=23.3.0
 isort>=5.12.0
 flake8>=6.0.0
-mypy>=1.3.0 
+mypy>=1.3.0
+
+# Added from the code block
+psutil>=5.8.0
+pytesseract>=0.3.10
+Pillow>=8.0.0 

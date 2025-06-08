@@ -1,0 +1,24 @@
+{
+  "original_text": "언제 만 어디를 다녀도 안정된 치안",
+  "restored_text": "언제든 어디를 다녀도 안정된 치안",
+  "preprocessing_steps": [
+    {
+      "step": "noise_removal",
+      "description": "Removed OCR artifacts and noise"
+    },
+    {
+      "step": "text_correction",
+      "description": "Applied T5-based text correction"
+    }
+  ],
+  "corrections": [
+    {
+      "position": [641, 429, 167, 61],
+      "original": "언제 만",
+      "corrected": "언제든",
+      "confidence": 0.89
+    }
+  ],
+  "method": "T5-based OCR Denoising",
+  "model_version": "t5-base-korean"
+} 

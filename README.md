@@ -6,6 +6,13 @@ This project implements and compares three different approaches to text restorat
 2. OCR Text Recovery
 3. Vision-based Text Restoration
 
+## System Requirements
+
+- Python 3.8+
+- Tesseract OCR (with Korean language pack)
+    - Ubuntu: `sudo apt-get install tesseract-ocr tesseract-ocr-kor`
+- pip packages: see requirements.txt
+
 ## Project Structure
 
 ```
@@ -17,6 +24,7 @@ This project implements and compares three different approaches to text restorat
 │   │   ├── labels/
 │   │   └── results/
 │   └── validation/
+├── results/           # All test and performance results are saved here
 ├── src/
 │   ├── mlm/
 │   │   ├── bert_restoration.py
@@ -32,6 +40,7 @@ This project implements and compares three different approaches to text restorat
 │   └── test_methods.py
 ├── notebooks/
 │   └── evaluation.ipynb
+├── test_performance.py
 ├── requirements.txt
 └── README.md
 ```
@@ -49,66 +58,39 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Download required models:
+3. (Linux) Install Tesseract and Korean language pack:
 ```bash
-python src/download_models.py
+sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-kor
 ```
 
 ## Usage
 
-### 1. MLM-based Restoration
-```python
-from src.mlm.roberta_restoration import RoBERTaRestorer
+### Run Performance Test Script
 
-restorer = RoBERTaRestorer()
-restored_text = restorer.restore("The cat sat on the [MASK]")
-```
-
-### 2. OCR Text Recovery
-```python
-from src.ocr.t5_restoration import T5Restorer
-
-restorer = T5Restorer()
-restored_text = restorer.restore("T1e c@t sa7 on t!e mat")
-```
-
-### 3. Vision-based Restoration
-```python
-from src.vision.trocr_restoration import TrOCRRestorer
-
-restorer = TrOCRRestorer()
-restored_text = restorer.restore("path/to/image.jpg")
-```
-
-### 4. Combined Processing
-```python
-from src.document_processor import DocumentProcessor
-
-processor = DocumentProcessor()
-result = processor.process_document("path/to/image.jpg")
-```
-
-### 5. Vector Database Creation
-```python
-from src.create_vector_db import create_vector_db
-
-vector_db = create_vector_db(
-    input_dir="data/test/results",
-    output_dir="data/test/vector_db"
-)
-```
-
-## Testing Methods
-
-To test all methods on a specific image:
+To test all methods on a specific image and save results in the `results/` directory:
 ```bash
-python src/test_methods.py
+python test_performance.py --image /path/to/image.jpg
 ```
 
-This will generate three types of result files in `data/test/results/`:
-1. `results.json`: Detailed results in JSON format
-2. `results.txt`: Results in plain text format
-3. `results.md`: Results in markdown format
+- 결과는 `results/` 폴더에 다음과 같이 저장됩니다:
+    - 각 방법별 추출 텍스트: `mlm_[이미지명]_[타임스탬프].txt`, `ocr_denoising_[이미지명]_[타임스탬프].txt`, `vision_based_[이미지명]_[타임스탬프].txt`
+    - 전체 결과 요약: `performance_report_[타임스탬프].json|txt|csv`
+    - 개별 결과 상세: `performance_test_[이미지명]_[타임스탬프].json`
+
+#### 예시
+```bash
+python test_performance.py --image data/test/images/5350224/1996/5350224-1996-0001-0037.jpg
+```
+
+### 옵션
+- `--limit N` : 최대 N개의 샘플만 평가
+- `--data-dir DIR` : 테스트 이미지가 있는 디렉토리 지정
+
+## 결과 파일 구조
+- `results/`
+    - `mlm_*.txt`, `ocr_denoising_*.txt`, `vision_based_*.txt` : 각 방법별 추출 텍스트
+    - `performance_test_*.json` : 개별 이미지별 상세 결과
+    - `performance_report_*.json|txt|csv` : 전체 성능 요약
 
 ## Models Used
 
@@ -147,4 +129,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Riley Kim - seonokrkim@gmail.com 
+Riley Kim (seonokrkim@gmail.com) 
